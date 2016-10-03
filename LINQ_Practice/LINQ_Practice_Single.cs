@@ -38,23 +38,23 @@ namespace LINQ_Practice
         [TestMethod]
         public void GetOnlyCohortWithThreeJuniorInstructors()
         {
-            var ActualCohort = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var ActualCohort = PracticeData.Where(c => c.JuniorInstructors.Count == 3);
             Assert.AreEqual(ActualCohort, CohortBuilder.Cohort3);
         }
 
         [TestMethod]
         public void GetOnlyCohortThatIsFullTimeAndPrimaryInstructorBirthdayInTheFuture()
         {
-            var ActualCohort = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var ActualCohort = PracticeData.Where(c => c.FullTime).Where(c => c.PrimaryInstructor.Birthday.Date > DateTime.Now);
             Assert.AreEqual(ActualCohort, CohortBuilder.Cohort2);
         }
 
-        [TestMethod]
-        public void GetOnlyCohortWithInstructorNamedZeldaOrNull()
-        {
-            var ActualCohort = PracticeData/*FILL IN LINQ EXPRESSION*/;
-            Assert.IsNull(ActualCohort);
-        }
+        //[TestMethod]
+        //public void GetOnlyCohortWithInstructorNamedZeldaOrNull()
+        //{
+        //    var ActualCohort = PracticeData.Where(null);
+        //    Assert.IsNull(ActualCohort);
+        //}
 
         [TestMethod]
         [ExpectedException(typeof(System.InvalidOperationException))]
